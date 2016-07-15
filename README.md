@@ -10,66 +10,64 @@
 -.型 :カラム名
  -->
 
-#User
+# User
 ---
-##association
+## association
 
   -has_many :prototypes
   -has_many :comments
 
-##table
+## table
 
--.string :email
--.string :encrypted-password
--.string :username
+-.string :password
+-.string :nickname
+-.text :pro_img <!--プロフィールイメージ -->
 
-
-#Prototype
+# Prototype
 ---
-##association
+## association
 
   -belongs_to :user
   -has_many :captureimages
   -has_many :comments
-  -has_one :like
+  -has_many :likes
 
-##table
+## table
 
 -.text :title
 -.text :catch_copy
 -.text :concept
 -.integer :user_id
 
-#CaptureImage
+# CaptureImage
 ---
-##association
+## association
 
   -belongs_to :prototype
 
-##table
+## table
 
--.string :name
--.integer :prototype_id
-<!-- user_name????? -->
-
-#Like
----
-##association
-
-<!-- わからず -->
-
-##table
-
--.integer :count
+-.string :type <!-- main画像かsub画像か判別-->
 -.integer :prototype_id
 
-#Comment
+# Like
 ---
-##association
+## association
+
+ -belongs_to :prototype
+
+## table
+
+-.integer :user_id
+-.integer :prototype_id
+
+# Comment
+---
+## association
 
   -belongs_to :prototype
 
-##table
+## table
 
 -.text :content
 -.integer :user_id
