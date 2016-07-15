@@ -1,4 +1,14 @@
-README.md
+<!-- #モデル名
+
+##アソシエーション
+ -アソシエーションの記述
+ -アソシエーションの記述
+
+##テーブル名
+
+-.型 :カラム名
+-.型 :カラム名
+ -->
 
 #User
 ---
@@ -9,9 +19,9 @@ README.md
 
 ##table
 
--email
--encrypted-password
--username
+-.string :email
+-.string :encrypted-password
+-.string :username
 
 
 #Prototype
@@ -25,10 +35,10 @@ README.md
 
 ##table
 
--title
--catch_copy
--concept
--user_id
+-.text :title
+-.text :catch_copy
+-.text :concept
+-.integer :user_id
 
 #CaptureImage
 ---
@@ -38,8 +48,8 @@ README.md
 
 ##table
 
--name
--prototype_id
+-.string :name
+-.integer :prototype_id
 <!-- user_name????? -->
 
 #Like
@@ -50,8 +60,8 @@ README.md
 
 ##table
 
--count
--prototype_id
+-.integer :count
+-.integer :prototype_id
 
 #Comment
 ---
@@ -61,6 +71,6 @@ README.md
 
 ##table
 
--content
--user_id
--prototype_id
+-.text :content
+-.integer :user_id
+-.integer :prototype_id
