@@ -16,12 +16,13 @@
 
   -has_many :prototypes
   -has_many :comments
+  -has_many :likes
 
 ## table
 
 -.string :password
 -.string :nickname
--.text :pro_img <!--プロフィールイメージ -->
+-.string :pro_img <!--プロフィールイメージ -->
 
 # Prototype
 ---
@@ -34,7 +35,7 @@
 
 ## table
 
--.text :title
+-.string :title
 -.text :catch_copy
 -.text :concept
 -.integer :user_id
@@ -47,14 +48,16 @@
 
 ## table
 
--.string :type <!-- main画像かsub画像か判別-->
+-.integer :type <!-- main画像かsub画像か判別-->
 -.integer :prototype_id
+-.text :content
 
 # Like
 ---
 ## association
 
  -belongs_to :prototype
+ -belongs_to :user
 
 ## table
 
@@ -66,6 +69,7 @@
 ## association
 
   -belongs_to :prototype
+  -belongs_to :user
 
 ## table
 
