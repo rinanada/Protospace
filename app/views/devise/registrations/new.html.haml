@@ -1,4 +1,5 @@
-%form.container.user-new{action: ""}
+%form.container.user-new
+=form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .col-md-8.col-md-offset-2
     %header.row.user-nav.row
       .col-md-12
