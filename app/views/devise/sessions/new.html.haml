@@ -3,8 +3,8 @@
     %h2.form-signin-heading Please sign in
     %label.sr-only{for: "inputEmail"}
     =f.text_field :email,class: 'form-control',id:'inputEmail',type:'email',placeholder: "Email address"
-    %label.sr-only{for: "inputPassword"} Password
-    %input#inputPassword.form-control{placeholder: "Password", required: "", type: "password"}/
+    %label.sr-only{for: "inputPassword"}
+    =f.text_field :password,class:'form-control',placeholder: "Password",  type: "password",id:'inputPassword'
     .checkbox
       %label
         %input{type: "checkbox", value: "remember-me"}/
