@@ -1,5 +1,5 @@
 .container
-  =form_for(resource, as: resource_name, url: session_path(resource_name),html:{class: 'form-signin'}) do |f|
+  =form_for(resource, as: resource_name, url: user_session_path(resource_name),html:{class: 'form-signin'}) do |f|
     %h2.form-signin-heading Please sign in
     %label.sr-only{for: "inputEmail"}
     =f.text_field :email,class: 'form-control',id:'inputEmail',type:'email',placeholder: "Email address"
