@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160719072432) do
+ActiveRecord::Schema.define(version: 20160719095147) do
+
+  create_table "capture_images", force: :cascade do |t|
+    t.integer  "type",         limit: 4
+    t.integer  "prototype_id", limit: 4
+    t.text     "content",      limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "prototypes", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -35,6 +43,9 @@ ActiveRecord::Schema.define(version: 20160719072432) do
     t.string   "last_sign_in_ip",        limit: 255
     t.string   "nickname",               limit: 255
     t.string   "pro_img",                limit: 255
+    t.string   "profile",                limit: 255
+    t.string   "group",                  limit: 255
+    t.string   "works",                  limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
   end
