@@ -8,9 +8,8 @@ class UsersController < ApplicationController
 
 
     def update
-      # binding.pry
       current_user.update(user_params)
-      # binding.pry
+      sign_in(current_user, bypass: true)
       redirect_to  root_path
     end
 
