@@ -5,8 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  belongs_to :user
-  has_many :captureimages
+  has_many :prototypes
   has_many :comments
   has_many :likes
 
