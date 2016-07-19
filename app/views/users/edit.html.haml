@@ -10,7 +10,8 @@
           /   %button.btn.btn-primary Change image
           /   =f.file_field :pro_img,type:"file"
         =f.text_field :email,class:'user-email',type: "email", placeholder: "E-Mail"
-        =f.text_field :password,class:'user-password',type: "password", placeholder: "Password"
+        =f.password_field :password,class:'user-password',type: "password", placeholder: "Password"
+        =f.password_field :password_confirmation ,class:'user-password',type: "password", placeholder: "Password Confirmation"
       .col-md-12
         %h4 Member of
         .user-user-member.row

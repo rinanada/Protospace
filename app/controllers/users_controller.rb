@@ -10,15 +10,11 @@ class UsersController < ApplicationController
       # binding.pry
       current_user.update(user_params)
       # binding.pry
-      redirect_to  controller: :prototypes, action: :index
-   
+      redirect_to  root_path
     end
 
     private
     def user_params
-      params.require(:user).permit(:nickname, :email, :password).merge(id: params[:id])
+      params.require(:user).permit(:nickname, :email, :password, :password_confirmation)
     end
-
-
-
 end
