@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get  '/prototypes/show'   =>    'prototypes#show'
    # get   '/users/:id'   =>  'users#show'    #Mypageへのルーティング
 
-   resources :users, only: [:show,:edit]
+   resources :users, only: [:show,:edit,:update]
+
 end
