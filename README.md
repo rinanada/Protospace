@@ -20,9 +20,11 @@
 
 ## table
 
--.string :password
 -.string :nickname
 -.string :pro_img <!--プロフィールイメージ -->
+-.string :profile
+-.string :group
+-.string :works
 
 # Prototype
 ---
