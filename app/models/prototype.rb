@@ -9,6 +9,5 @@ class Prototype < ActiveRecord::Base
 
   def subimage(attributed)
     attributed['content'].blank? if attributed.has_value?('sub')
-    binding.pry
   end
 end
