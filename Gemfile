@@ -16,6 +16,7 @@ gem 'pry-rails'
 
 group :development, :test do
   gem 'byebug'
+  gem 'kaminari'
 end
 
 group :development do
