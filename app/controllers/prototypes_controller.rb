@@ -20,7 +20,6 @@ class PrototypesController < ApplicationController
   private
 
     def proto_params
-      binding.pry
-      params.require(:prototype).permit(:title, :catch_copy, :concept, capture_images_attributes: [:type,:content])
+      params.require(:prototype).permit(:title, :catch_copy, :concept, capture_images_attributes: [:type,:content]).merge(user_id: current_user.id)
     end
 end
