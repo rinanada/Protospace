@@ -20,6 +20,7 @@ class PrototypesController < ApplicationController
   private
 
     def proto_params
+      binding.pry
       params.require(:prototype).permit(:title, :catch_copy, :concept, capture_images_attributes: [:type,:content])
     end
 end

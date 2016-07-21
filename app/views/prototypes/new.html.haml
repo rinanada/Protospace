@@ -6,21 +6,21 @@
     .row
       .col-md-12
         .cover-image-upload
-          =fields_for :captureimage do |capture_fields|
+          =proto_form.fields_for :capture_images do |capture_fields|
             =capture_fields.file_field :content
-            =capture_fields.hidden_field :type[:main]
+            =capture_fields.hidden_field :type, value: "main"
       .col-md-12
         %ul.proto-sub-list.list-group
           %li.list-group-item.col-md-4
             .image-upload
-              =fields_for :captureimage do |capture_fields|
+              =proto_form.fields_for :capture_images do |capture_fields|
                 =capture_fields.file_field :content
-                =capture_fields.hidden_field(:type, :sub)
+                =capture_fields.hidden_field :type, value: "sub"
           %li.list-group-item.col-md-4
             .image-upload
-              =fields_for :captureimage do |capture_fields|
+              =proto_form.fields_for :capture_images do |capture_fields|
                 =capture_fields.file_field :content
-                =capture_fields.hidden_field(:type,:sub)
+                =capture_fields.hidden_field :type, value: "sub"
           %li.list-group-item.col-md-4
             .image-upload-plus
               %span +
