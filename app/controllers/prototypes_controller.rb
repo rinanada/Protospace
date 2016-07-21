@@ -9,8 +9,13 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    Prototype.create(proto_params)
-    redirect_to action: :index
+    @prototype = Prototype.new(proto_params)
+
+    if @prototype.save
+      redirect_to action: :index
+    else
+      render :new
+    end
   end
 
   def show

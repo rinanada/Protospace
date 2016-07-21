@@ -5,5 +5,11 @@ class CaptureImage < ActiveRecord::Base
   belongs_to :prototype
   mount_uploader :content, ImageUploader
 
+  validates :content, presence: true, if: :mainimage
+
+  def mainimage
+    binding.pry
+    self.type == "main"
+  end
 
 end
