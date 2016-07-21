@@ -24,8 +24,7 @@
     - @prototypes.each do |prototype|
       .col-sm-4.col-md-3.proto-content
         .thumbnail
-          %a{href: ""}
-            = image_tag("#{prototype.capture_images.main.first.content}")
+          =link_to image_tag("#{prototype.capture_images.main.first.content}"),prototype_path
           .caption
             %h3 #{prototype.title}
             .proto-meta
