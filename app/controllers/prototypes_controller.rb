@@ -6,12 +6,11 @@ class PrototypesController < ApplicationController
     # binding.pry
     @prototype = Prototype.new
     @prototype.capture_images.build
-
   end
 
   def create
     Prototype.create(proto_params)
-    redirect_to actuion: :index
+    redirect_to action: :index
   end
 
   def show
