@@ -3,7 +3,7 @@ class CreateCaptureImages < ActiveRecord::Migration
     create_table :capture_images do |t|
 
       t.integer :type, default: 0, null: false, limit: 1
-      t.integer :prototype_id
+      t.references :prototype
       t.text  :content
       t.timestamps
     end
