@@ -27,20 +27,20 @@
     - @prototypes.each do |prototype|
       .col-sm-4.col-md-3.proto-content
         .thumbnail
-          =link_to image_tag("#{prototype.capture_images.main.first.content}"), prototype_path(prototype)
+          =link_to image_tag(prototype.main_img), prototype_path(prototype)
           .caption
             %h3
               = prototype.title
             .proto-meta
               .proto-user
-                =link_to "by #{current_user.nickname}", user_path(prototype.user_id)
+                =link_to "by #{prototype.user.nickname}", user_path(prototype.user_id)
               .proto-posted
-                #{prototype.created_at.strftime("%b %d")}
+                = prototype.created_at.strftime("%b %d")
             %ul.proto-tag-list.list-inline
               %li
-                %a{href: "#", class: "btn btn-default"} iPad
+                =link_to "iPad", "/", class: "btn btn-default"
               %li
-                %a{href: "#", class: "btn btn-default"} wireframe
+                =link_to "wireframe", "/", class: "btn btn-default"
 
 .text-center
   = paginate(@prototypes)

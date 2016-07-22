@@ -15,22 +15,7 @@
 .container.proto-list
   .row
     - @prototypes.each do |prototype|
-      .col-sm-4.col-md-3.proto-content
-        .thumbnail
-          =link_to image_tag("#{prototype.capture_images.main.first.content}"), prototype_path(prototype)
-          .caption
-            %h3
-              = prototype.title
-            .proto-meta
-              .proto-user
-                =link_to "by #{prototype.user.nickname}", user_path(prototype.user_id)
-              .proto-posted
-                = prototype.created_at.strftime("%b %d")
-            %ul.proto-tag-list.list-inline
-              %li
-                =link_to "iPad", "/", class: "btn btn-default"
-              %li
-                =link_to "wireframe", "/", class: "btn btn-default"
+      = render partial: "prototypes", locals: {prototype: prototype}
 
 .text-center
   = paginate @prototypes

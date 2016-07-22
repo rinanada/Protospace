@@ -7,4 +7,10 @@ class Prototype < ActiveRecord::Base
   def subimage(attributed)
     attributed['content'].blank? if attributed.has_value?('sub')
   end
+
+  def main_img
+    capture_images.main[0].content
+  end
+
+
 end
