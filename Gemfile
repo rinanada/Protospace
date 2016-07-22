@@ -14,10 +14,10 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'pry-rails'
 gem 'carrierwave'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug'
-  gem 'kaminari'
 end
 
 group :development do
