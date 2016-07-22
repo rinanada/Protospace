@@ -11,14 +11,17 @@
             = @prototypes.count
             %i Projects
         .proto-user
-          %span.degree #{@group}
+          %span.degree
+            = @group
         .row
           .col-md-6
             %h4 Profile
-            %p #{@profile}
+            %p
+              = @profile
           .col-md-6
             %h4 Works
-            %p #{@works}
+            %p
+              = @works
 .container.proto-list
   .row
     - @prototypes.each do |prototype|
@@ -26,7 +29,8 @@
         .thumbnail
           =link_to image_tag("#{prototype.capture_images.main.first.content}"),"/prototypes/#{prototype.id}"
           .caption
-            %h3 = prototype.title
+            %h3
+              = prototype.title
             .proto-meta
               .proto-user
                 =link_to "by #{current_user.nickname}"

@@ -4,7 +4,7 @@ class CaptureImage < ActiveRecord::Base
   self.inheritance_column = :_type_disabled
   belongs_to :prototype
   mount_uploader :content, PrototypeImageUploader
-  validates :content, presence: true, if: :mainimage
+  # validates :content, presence: true, if: :mainimage
 
   def mainimage
     self.type == "main"
