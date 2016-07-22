@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def update
     current_user.update(user_params)
     sign_in(current_user, bypass: true)
-    redirect_to root_path
+    redirect_to root_path, notice: 'Your profile has been edited successfully'
   end
 
   private
