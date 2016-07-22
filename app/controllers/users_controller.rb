@@ -2,9 +2,6 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    # @prototypes = Prototype.where(user_id: currentuser.id).page[:params].page(5)
-
-
     @prototypes = current_user.prototypes.order("created_at DESC")
     # .page(params[:page]).per(5)
     @group = current_user.group
@@ -18,12 +15,12 @@ class UsersController < ApplicationController
   def update
     current_user.update(user_params)
     sign_in(current_user, bypass: true)
-    redirect_to root_path
+    redirect_to root_path, notice: 'Your profile has been edited successfully'
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:nickname, :email, :passwor)
+    params.require(:user).permit(:nickname, :email, :password, :group, :profile, :works)
   end
 end
