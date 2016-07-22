@@ -3,7 +3,6 @@ class PrototypesController < ApplicationController
 
   def index
     @prototypes = Prototype.includes(:user).order("created_at DESC").page(params[:page]).per(4)
-    # .order("created_at DESC")
   end
 
   def new
