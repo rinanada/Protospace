@@ -13,7 +13,6 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.new(proto_params)
     if @prototype.save
       redirect_to ({action: :index}), notice: 'prototype has been created successfully'
-      # redirect_to :root, notice: 'prototype has been created successfully'
     else
       redirect_to ({action: :new}), alert: 'error'
     end
