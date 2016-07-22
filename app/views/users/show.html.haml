@@ -33,7 +33,7 @@
               = prototype.title
             .proto-meta
               .proto-user
-                =link_to "by #{current_user.nickname}"
+                =link_to "by #{current_user.nickname}", "/users/#{prototype.user.id}"
               .proto-posted
                 #{prototype.created_at.strftime("%b %d")}
             %ul.proto-tag-list.list-inline
@@ -42,5 +42,5 @@
               %li
                 %a{href: "#", class: "btn btn-default"} wireframe
 
-/ .text-center
-/   = pagination(@prototypes)
+.text-center
+  = paginate(@prototypes)

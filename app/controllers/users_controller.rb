@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @prototypes = current_user.prototypes.order("created_at DESC").page(params[:page]).per(8)
+    @prototypes = current_user.prototypes.order("created_at DESC").page(params[:page]).per(4)
     @group = current_user.group
     @profile = current_user.profile
     @works = current_user.works
