@@ -2,7 +2,7 @@ class PrototypesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :delete]
 
   def index
-    @prototypes = Prototype.all.order("created_at DESC").page(params[:page]).per(8)
+    @prototypes = Prototype.all.page(params[:page]).per(8).order("created_at DESC")
   end
 
   def new
