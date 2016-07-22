@@ -1,10 +1,10 @@
 class PrototypesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :delete]
 
   def index
   end
 
   def new
-    # binding.pry
     @prototype = Prototype.new
     @prototype.capture_images.build
   end
