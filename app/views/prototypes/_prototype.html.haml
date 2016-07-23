@@ -1,13 +1,14 @@
 .col-sm-4.col-md-3.proto-content
-  .dropdown.drop_menu_location
-    %button#dropdownMenu.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}  Action
-    %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
-      %li
-        =link_to "Delete", "/prototypes/#{prototype.id}", rel: "nofollow", method: :delete
-        / %a{"data-method" => "delete", :href => "/prototypes/#{prototype.id}", :rel => "nofollow"} Delete
-      %li
-        =link_to "Edit", edit_prototype_path(prototype)
-        / %a{:href => "/prototypes/#{prototype.id}/edit"} Edit
+  if user_signed_in? && current_user.id == prototype.user_id
+    .dropdown.drop_menu_location
+      %button#dropdownMenu.btn.btn-default.dropdown-toggle{"data-toggle"   => "dropdown", :type => "button"}  Action
+      %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+        %li
+          =link_to "Delete", "/prototypes/#{prototype.id}", rel: "nofollow  ", method: :delete
+          / %a{"data-method" => "delete", :href => "/  prototypes/#{prototype.id}", :rel => "nofollow"} Delete
+        %li
+          =link_to "Edit", edit_prototype_path(prototype)
+          / %a{:href => "/prototypes/#{prototype.id}/edit"} Edit
   .thumbnail
     =link_to image_tag(prototype.main_image.content), prototype_path(  prototype)
     .caption
