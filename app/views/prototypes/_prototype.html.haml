@@ -3,9 +3,11 @@
     %button#dropdownMenu.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}  Action
     %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
       %li
-        %a{"data-method" => "delete", :href => "/prototypes/220", :rel => "nofollow"} Delete
+        =link_to "Delete", "/prototypes/#{prototype.id}", rel: "nofollow"
+        / %a{"data-method" => "delete", :href => "/prototypes/#{prototype.id}", :rel => "nofollow"} Delete
       %li
-        %a{:href => "/prototypes/220/edit"} Edit
+        =link_to "Edit", edit_prototype_path(prototype)
+        / %a{:href => "/prototypes/#{prototype.id}/edit"} Edit
   .thumbnail
     =link_to image_tag(prototype.main_image.content), prototype_path(  prototype)
     .caption
