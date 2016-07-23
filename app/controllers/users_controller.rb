@@ -2,10 +2,10 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @prototypes = current_user.prototypes.includes(:capture_images).order("created_at DESC").page(params[:page]).per(4)
-    @group = current_user.group
-    @profile = current_user.profile
-    @works = current_user.works
+    @prototypes = User.find(params[:id]).prototypes.includes(:capture_images).order("created_at DESC").page(params[:page]).per(4)
+    @group = User.find(params[:id]).group
+    @profile = User.find(params[:id]).profile
+    @works = User.find(params[:id]).works
   end
 
   def edit
