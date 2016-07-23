@@ -26,13 +26,17 @@ class PrototypesController < ApplicationController
 
   def edit
     @prototype = Prototype.find(params[:id])
+    @prototype.capture_images.build
   end
 
   def update
     prototype = Prototype.find(params[:id])
     if user_signed_in? && current_user.id == prototype.user_id
       prototype.update(proto_params)
-    end
+      redirect_to ({action: :index}), notice: 'prototype has been edited successfully'
+    else
+      redirect_to ({action :edit}), alert: 'error has occured'
+
   end
 
   def destroy
