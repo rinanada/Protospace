@@ -40,8 +40,12 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
-    Prototype.find(params[:id]).destroy
-    redirect_to ({action: :index}), notice: 'prototype has been deleted successfully'
+    if user_signed_in && current_user.id == prototype.user_id
+      Prototype.find(params[:id]).destroy
+      redirect_to ({action: :index}), notice: 'prototype has been deleted successfully'
+    else
+       redirect_to ({action: :index}), alert: 'error has occured'
+    end
   end
 
   private
