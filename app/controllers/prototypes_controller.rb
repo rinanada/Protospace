@@ -24,6 +24,16 @@ class PrototypesController < ApplicationController
     @sub_images = @prototype.capture_images.sub
   end
 
+  def edit
+    @prototype = Prototype.find(params[:id])
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
   private
 
   def proto_params
