@@ -20,7 +20,8 @@ class PrototypesController < ApplicationController
   end
 
   def show
-    @prototype = Prototype.find(params[:id])
+    @prototype = Prototype.includes(:user, :capture_images, :comments).find(params[:id])
+    @sub_images = @prototype.capture_images.sub
   end
 
   private
