@@ -29,6 +29,10 @@ class PrototypesController < ApplicationController
   end
 
   def update
+    prototype = Prototype.find(params[:id])
+    if user_signed_in? && current_user.id == prototype.user_id
+      prototype.update(proto_params)
+    end
   end
 
   def destroy
