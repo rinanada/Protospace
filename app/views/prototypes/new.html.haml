@@ -11,16 +11,12 @@
             =capture_fields.hidden_field :type, value: "main"
       .col-md-12
         %ul.proto-sub-list.list-group
-          %li.list-group-item.col-md-4
-            .image-upload
-              =f.fields_for :capture_images do |capture_fields|
-                =capture_fields.file_field :content
-                =capture_fields.hidden_field :type, value: "sub"
-          %li.list-group-item.col-md-4
-            .image-upload
-              =f.fields_for :capture_images do |capture_fields|
-                =capture_fields.file_field :content
-                =capture_fields.hidden_field :type, value: "sub"
+          - 2.times do
+            %li.list-group-item.col-md-4
+              .image-upload
+                =f.fields_for :capture_images do |capture_fields|
+                  =capture_fields.file_field :content
+                  =capture_fields.hidden_field :type, value: "sub"
           %li.list-group-item.col-md-4
             .image-upload-plus
               %span +
