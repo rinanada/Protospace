@@ -35,12 +35,12 @@ class PrototypesController < ApplicationController
       prototype.update(proto_params)
       redirect_to ({action: :index}), notice: 'prototype has been edited successfully'
     else
-      redirect_to ({action :edit}), alert: 'error has occured'
+      redirect_to ({action: :edit}), alert: 'error has occured'
     end
   end
 
   def destroy
-    prototype.find(params[:id]).destroy
+    Prototype.find(params[:id]).destroy
     redirect_to ({action: :index}), notice: 'prototype has been deleted successfully'
   end
 
