@@ -9,8 +9,9 @@
           %h4#top-aligned-media.media-heading
             Top aligned media
           .proto-user
-            %a{href: ""} by User
-            %span.degree we-b inc. Designer
+            =link_to "by #{@prototype.user.nickname}", user_path(@prototype.user_id)
+            %span.degree
+              = @prototype.user.group
 
     .col-md-6.text-right
       %button.btn.btn-default
