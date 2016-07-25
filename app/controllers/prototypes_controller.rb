@@ -55,8 +55,4 @@ class PrototypesController < ApplicationController
   def prototype
     @prototype = Prototype.find(params[:id])
   end
-
-  # def proto_params_update
-  #   params.require(:prototype).permit(:title, :catch_copy, :concept, capture_images_attributes: [:type,:content])
-  # end
 end
