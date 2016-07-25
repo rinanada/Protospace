@@ -17,6 +17,13 @@
                 =f.fields_for :capture_images, sub_image do |capture_fields|
                   =capture_fields.file_field :content
                   =capture_fields.hidden_field :type, value: "sub"
+          - if @prototype.capture_images.sub.length <= 2 then
+            - (2 - @prototype.capture_images.sub.length).times do
+              %li.list-group-item.col-md-4
+                .image-upload
+                  =f.fields_for :capture_images do |capture_fields|
+                    =capture_fields.file_field :content
+                    =capture_fields.hidden_field :type, value: "sub"
           %li.list-group-item.col-md-4
             .image-upload-plus
               %span +
