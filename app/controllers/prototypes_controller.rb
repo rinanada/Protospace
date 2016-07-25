@@ -1,5 +1,6 @@
 class PrototypesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :delete]
+  before_action :prototype, only: [:edit, :update, :delete]
 
   def index
     @prototypes = Prototype.includes(:user, :capture_images).order("created_at DESC").page(params[:page]).per(4)
@@ -25,12 +26,10 @@ class PrototypesController < ApplicationController
   end
 
   def edit
-    @prototype = Prototype.find(params[:id])
     @prototype.capture_images.build
   end
 
   def update
-    @prototype = Prototype.find(params[:id])
     if current_user.id == @prototype.user_id && @prototype.update(proto_params)
       redirect_to root_path, notice: 'prototype has been edited successfully'
     else
@@ -39,7 +38,6 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
-    @prototype = Prototype.find(params[:id])
     if user_signed_in? && current_user.id == @prototype.user_id
       @prototype.destroy
       redirect_to root_path, notice: 'prototype has been deleted successfully'
@@ -52,6 +50,10 @@ class PrototypesController < ApplicationController
 
   def proto_params
     params.require(:prototype).permit(:title, :catch_copy, :concept, capture_images_attributes: [:type, :content, :id]).merge(user_id: current_user.id)
+  end
+
+  def prototype
+    @prototype = Prototype.find(params[:id])
   end
 
   # def proto_params_update
