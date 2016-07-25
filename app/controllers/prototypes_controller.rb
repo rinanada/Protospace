@@ -13,9 +13,9 @@ class PrototypesController < ApplicationController
   def create
     @prototype = Prototype.new(proto_params)
     if @prototype.save
-      redirect_to ({action: :index}), notice: 'prototype has been created successfully'
+      redirect_to root_path, notice: 'prototype has been created successfully'
     else
-      redirect_to ({action: :new}), alert: 'error'
+      redirect_to new_prototype_path, alert: 'error'
     end
   end
 
@@ -31,10 +31,10 @@ class PrototypesController < ApplicationController
 
   def update
     @prototype = Prototype.find(params[:id])
-    if current_user.id == @protottype.user_id && @prototype.update(proto_params)
-      redirect_to ({action: :index}), notice: 'prototype has been edited successfully'
+    if current_user.id == @prototype.user_id && @prototype.update(proto_params)
+      redirect_to root_path, notice: 'prototype has been edited successfully'
     else
-      redirect_to ({action: :edit}), alert: 'error has occured'
+      redirect_to edit_prototype_path(@prototype), alert: 'error has occured'
     end
   end
 
@@ -42,9 +42,9 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.find(params[:id])
     if user_signed_in? && current_user.id == @prototype.user_id
       @prototype.destroy
-      redirect_to ({action: :index}), notice: 'prototype has been deleted successfully'
+      redirect_to root_path, notice: 'prototype has been deleted successfully'
     else
-       redirect_to ({action: :index}), alert: 'error has occured'
+      redirect_to root_path, alert: 'error has occured'
     end
   end
 
