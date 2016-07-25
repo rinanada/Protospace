@@ -30,9 +30,9 @@ class PrototypesController < ApplicationController
   end
 
   def update
-    prototype = Prototype.find(params[:id])
-    if user_signed_in? && current_user.id == prototype.user_id
-      prototype.update(proto_params)
+    @prototype = Prototype.find(params[:id])
+    if user_signed_in? && current_user.id == @prototype.user_id
+      @prototype.update(proto_params)
       redirect_to ({action: :index}), notice: 'prototype has been edited successfully'
     else
       redirect_to ({action: :edit}), alert: 'error has occured'
@@ -40,8 +40,9 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
-    if user_signed_in && current_user.id == prototype.user_id
-      Prototype.find(params[:id]).destroy
+    @prototype = Prototype.find(params[:id])
+    if user_signed_in? && current_user.id == @prototype.user_id
+      @prototype.destroy
       redirect_to ({action: :index}), notice: 'prototype has been deleted successfully'
     else
        redirect_to ({action: :index}), alert: 'error has occured'
@@ -53,4 +54,8 @@ class PrototypesController < ApplicationController
   def proto_params
     params.require(:prototype).permit(:title, :catch_copy, :concept, capture_images_attributes: [:type,:content]).merge(user_id: current_user.id)
   end
+
+  # def proto_params_update
+  #   params.require(:prototype).permit(:title, :catch_copy, :concept, capture_images_attributes: [:type,:content])
+  # end
 end
