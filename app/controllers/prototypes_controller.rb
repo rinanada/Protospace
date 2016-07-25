@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :delete]
-  before_action :prototype, only: [:edit, :update, :delete]
+  before_action :prototype, only: [:edit, :update, :destroy]
 
   def index
     @prototypes = Prototype.includes(:user, :capture_images).order("created_at DESC").page(params[:page]).per(4)
