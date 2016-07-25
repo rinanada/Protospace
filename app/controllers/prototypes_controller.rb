@@ -31,8 +31,7 @@ class PrototypesController < ApplicationController
 
   def update
     @prototype = Prototype.find(params[:id])
-    if user_signed_in? && current_user.id == @prototype.user_id
-      @prototype.update(proto_params)
+    if current_user.id == @protottype.user_id && @prototype.update(proto_params)
       redirect_to ({action: :index}), notice: 'prototype has been edited successfully'
     else
       redirect_to ({action: :edit}), alert: 'error has occured'
@@ -52,7 +51,7 @@ class PrototypesController < ApplicationController
   private
 
   def proto_params
-    params.require(:prototype).permit(:title, :catch_copy, :concept, capture_images_attributes: [:type,:content]).merge(user_id: current_user.id)
+    params.require(:prototype).permit(:title, :catch_copy, :concept, capture_images_attributes: [:type, :content, :id]).merge(user_id: current_user.id)
   end
 
   # def proto_params_update
