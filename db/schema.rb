@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20160726043440) do
 
   create_table "capture_images", force: :cascade do |t|

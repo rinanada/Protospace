@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :prototypes
   has_many :comments
   has_many :likes
+  mount_uploader :pro_img, ProImgUploader
+  validates :nickname, :password, :email, presence: true
 
   def main_img
     capture_images.main[0].content
