@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20160726043440) do
+ActiveRecord::Schema.define(version: 20160726110006) do
 
   create_table "capture_images", force: :cascade do |t|
     t.integer  "type",         limit: 1,     default: 0, null: false
@@ -52,7 +51,7 @@ ActiveRecord::Schema.define(version: 20160726043440) do
     t.integer  "user_id",     limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "likes_count", limit: 4
+    t.integer  "likes_count", limit: 4,     default: 0
   end
 
   add_index "prototypes", ["title"], name: "index_prototypes_on_title", using: :btree
