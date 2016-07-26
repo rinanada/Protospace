@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20160726043440) do
     t.datetime "updated_at"
   end
 
+  add_index "capture_images", ["prototype_id"], name: "index_capture_images_on_prototype_id", using: :btree
+
   create_table "comments", force: :cascade do |t|
     t.integer  "prototype_id", limit: 4
     t.integer  "user_id",      limit: 4
@@ -72,11 +74,13 @@ ActiveRecord::Schema.define(version: 20160726043440) do
     t.string   "works",                  limit: 255
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
+    t.text     "image_cache",            limit: 65535
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "capture_images", "prototypes"
   add_foreign_key "comments", "prototypes"
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "prototypes"
