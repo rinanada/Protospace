@@ -661,12 +661,16 @@ footer{
     text-align: left;
  }
 
- .proto-content{
+.proto-content{
    position: relative;
  }
 
- .dropdown {
+.dropdown {
    position: absolute;
    top: 10px;
    left: 20px;
  }
+
+.hidden {
+  display: none;
+}
