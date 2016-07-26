@@ -13,10 +13,9 @@
               = @prototype.user.group
 
     .col-md-6.text-right
-      =form_for(@likes),remote: true do |f|
-      %button.btn.btn-default
+      = button_to(class: "btn btn-default"), remote: true do
           = image_tag("icon_heart.svg",class: 'white')
-          = image_tag("",class: 'red')
+          = image_tag("",class: 'red', 'hidden')
         Like
         %span.num = @prototype.likes_count
   .row
