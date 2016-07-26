@@ -11,13 +11,14 @@
             =link_to "by #{@prototype.user.nickname}", user_path(@prototype.user_id)
             %span.degree
               = @prototype.user.group
-
     .col-md-6.text-right
-      = button_to(class: "btn btn-default"), remote: true do
-          = image_tag("icon_heart.svg",class: 'white')
-          = image_tag("",class: 'red', 'hidden')
-        Like
-        %span.num = @prototype.likes_count
+      / #like-buttons
+      = render partial: 'like', locals: {prototype: @prototype }
+      / = button_to(class: "btn btn-default"), remote: true do
+      /     = image_tag("icon_heart.svg",class: 'white')
+      /     = image_tag("",class: 'red', 'hidden')
+      /   Like
+      /   %span.num = @prototype.likes_count
   .row
     .col-md-9
       = image_tag(@prototype.main_image.content, class: 'img-responsive')
