@@ -12,8 +12,8 @@
             %span.degree
               = @prototype.user.group
     .col-md-6.text-right
-      / #like-buttons
-      = render partial: 'like', locals: {prototype: @prototype }
+      #like-buttons
+        = render partial: 'like', locals: {prototype: @prototype }
       / = button_to(class: "btn btn-default"), remote: true do
       /     = image_tag("icon_heart.svg",class: 'white')
       /     = image_tag("",class: 'red', 'hidden')
