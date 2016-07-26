@@ -3,8 +3,7 @@
     .col-md-6
       .media
         .media-left
-          %a{href: user_path(@prototype.user)}
-            %img.media-object{alt: "64x64", "data-holder-rendered": "true", "data-src": "holder.js/64x64",src: @prototype.user.pro_img, style: "width: 64px; height: 64px;"}/
+          =link_to image_tag(@prototype.user.pro_img, alt: "64x64", "data-holder-rendered": "true", "data-src": "holder.js/64x64", style: "width: 64px; height: 64px;",class: 'media-object'), user_path(@prototype.user)
         .media-body
           %h4#top-aligned-media.media-heading
             = @prototype.title
