@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
   def create
-    @likes =
+    @likes = Like.new
   end
 
   def destroy
