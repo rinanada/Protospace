@@ -13,10 +13,12 @@
               = @prototype.user.group
 
     .col-md-6.text-right
+      =form_for(@likes),remote: true do |f|
       %button.btn.btn-default
-        = image_tag("icon_heart.svg")
+          = image_tag("icon_heart.svg",class: 'white')
+          = image_tag("",class: 'red')
         Like
-        %span.num 20
+        %span.num = @prototype.likes_count
   .row
     .col-md-9
       = image_tag(@prototype.main_image.content, class: 'img-responsive')
