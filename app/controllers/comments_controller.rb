@@ -1,8 +1,9 @@
 class CommentsController < ApplicationController
   def create
-    binding.pry
+    # binding.pry
     @comment = Comment.new(comment_params)
     @comment.save
+    @comments = Prototype.find(params[:prototype_id]).comments
     # redirect_to prototype_path(@comment.prototype)
   end
 
