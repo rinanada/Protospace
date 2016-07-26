@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :user, only: [:show, :edit, :update]
 
   def show
-    @user = User.find(params[:id])
     @prototypes = User.find(params[:id]).prototypes.includes(:capture_images).order("created_at DESC").page(params[:page]).per(4)
     @pro_img = User.find(params[:id]).pro_img
     @group = User.find(params[:id]).group
@@ -11,11 +11,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if current_user.id == @user.id && current_user.update(user_params)
       sign_in(current_user, bypass: true)
       redirect_to root_path, notice: 'Your profile has been edited successfully'
@@ -28,5 +26,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:nickname, :email, :password, :pro_img, :image_cache, :group, :profile, :works)
+  end
+
+  def user
+    @user = User.find(params[:id])
   end
 end
