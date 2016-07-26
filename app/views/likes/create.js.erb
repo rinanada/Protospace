@@ -1,10 +1,1 @@
-$("prototype_likes_count").val("");
-
-$(window).on("load", function() {
-  $("button.btn.btn-default").on("click", function() {
-    $("button.btn.btn-default.selected").removeClass("selected");
-    $(this).addClass("selected");
-    $(".contents div").hide(); // 二つの要素を非表示にする
-    $("." + this.id).show(); // クリックされたボタンに対応する要素を表示する
-  });
-});
+$("#like-buttons").html("<%= j(render partial: 'prototypes/like', locals: { prototype: @prototype }) %>")
