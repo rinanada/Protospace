@@ -8,11 +8,11 @@
           %h4#top-aligned-media.media-heading
             = @prototype.title
           .proto-user
-            =link_to "by #{@prototype.user.nickname}", user_path(@prototype.user_id)
+            = link_to "by #{@prototype.user.nickname}", user_path(@prototype.user_id)
             %span.degree
               = @prototype.user.group
     .col-md-6.text-right
-      #like_buttons
+      #js-like_button
         = render partial: 'like', locals: {prototype: @prototype, like: @like }
   .row
     .col-md-9
