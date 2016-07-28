@@ -6,6 +6,9 @@ class Prototype < ActiveRecord::Base
   has_one :main_image, -> {where type: 0}, class_name: "CaptureImage"
   has_many :comments, dependent: :destroy
 
+  acts_as_taggable # Alias for acts_as_taggable_on :tags
+  acts_as_taggable_on :label
+
   def subimage(attributed)
     attributed['content'].blank? if attributed.has_value?('sub')
   end
