@@ -12,9 +12,11 @@ class PrototypesController < ApplicationController
   end
 
   def create
+    binding.pry
     @prototype = Prototype.new(proto_params)
     if @prototype.save
       redirect_to root_path, notice: 'prototype has been created successfully'
+      binding.pry
     else
       redirect_to new_prototype_path, alert: 'error'
     end
@@ -52,7 +54,7 @@ class PrototypesController < ApplicationController
   private
 
   def proto_params
-    params.require(:prototype).permit(:title, :catch_copy, :concept, :tag_list, capture_images_attributes: [:type, :content, :id]).merge(user_id: current_user.id)
+    params.require(:prototype).permit(:title, :catch_copy, :concept, capture_images_attributes: [:type, :content, :id]).merge(user_id: current_user.id, tag_list: params[:prototype][:tag])
   end
 
   def prototype
