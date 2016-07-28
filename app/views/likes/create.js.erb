@@ -1,0 +1,1 @@
+$("#js-like_button").html("<%= j(render partial: 'prototypes/like', locals: { prototype: @prototype, like: @prototype.likes.find_by(user_id: current_user.id)}) %>");

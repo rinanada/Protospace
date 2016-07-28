@@ -5,6 +5,7 @@ class Prototype < ActiveRecord::Base
   validates :title, :concept, :catch_copy, presence: true
   has_one :main_image, -> {where type: 0}, class_name: "CaptureImage"
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   acts_as_taggable # Alias for acts_as_taggable_on :tags
   acts_as_taggable_on :label
