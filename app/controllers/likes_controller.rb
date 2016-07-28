@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!
-  before_action :prototype
+  before_action :set_prototype
 
   def create
     @prototype.likes.create(user_id: current_user.id, prototype_id: params[:prototype_id])
@@ -12,7 +12,7 @@ class LikesController < ApplicationController
   end
 
   private
-  def prototype
+  def set_prototype
     @prototype = Prototype.find(params[:prototype_id])
   end
 
