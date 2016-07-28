@@ -674,3 +674,16 @@ footer{
 .hidden {
   display: none;
 }
+
+.like-button {
+  padding-right: 35px;
+
+  img {
+    max-width: 18px;
+    margin-right: 5px;
+  }
+
+  .num {
+    font-weight: bold;
+  }
+}
