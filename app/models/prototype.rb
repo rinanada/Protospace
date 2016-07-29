@@ -15,6 +15,4 @@ class Prototype < ActiveRecord::Base
   #   capture_images.main[0].content
   # end
   scope :including, -> { includes(:user, :capture_images)}
-
-
 end
