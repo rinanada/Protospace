@@ -3,7 +3,7 @@ class PrototypesController < ApplicationController
   before_action :prototype, only: [:edit, :update, :destroy]
 
   def index
-    @prototype 
+    @prototypes = Prototype.includes(:user, :capture_images).order("likes_count DESC").page(params[:page]).per(8)
   end
 
   def new
