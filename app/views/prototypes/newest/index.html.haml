@@ -7,14 +7,14 @@
     .row
       %ul.nav.nav-pills.col-lg-11
         %li.active{role: "presentation"}
-          =link_to "Popular PROTO"
+          =link_to "Popular PROTO",root_path
         %li{role: "presentation"}
           =link_to "Newest PROTO"
       %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
 
 .container.proto-list
   .row
-    = render partial: "prototype",collection: @prototypes
+    = render partial: "prototypes/prototype",collection: @prototypes
 
 .text-center
   = paginate @prototypes

@@ -1,4 +1,4 @@
-class NewestsController < ApplicationController
+class Prototypes::NewestController < ApplicationController
 before_action :authenticate_user!
 
   def index
