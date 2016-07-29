@@ -8,6 +8,7 @@ class Prototype < ActiveRecord::Base
   has_many :likes, dependent: :destroy
 
   acts_as_taggable_on :tags
+  acts_as_taggable_on :prototype
 
   def subimage(attributed)
     attributed['content'].blank? if attributed.has_value?('sub')

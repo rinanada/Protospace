@@ -1,10 +1,7 @@
 .container
   .row
-    - @tags.each do |tag|
+    %h2
+      Tags list
       .col-sm-4.col-sm-3
-        =link_to tag_path(tag.id)
-          .tag-name
-            = tag.name
-          .tag-project
-            = tag.taggings_count
-
+        - @tags.each do |tag|
+          = link_to "#{tag.name}   project#{tag.taggings_count}", tag_path(tag.id),class:"tag thumbnail"
