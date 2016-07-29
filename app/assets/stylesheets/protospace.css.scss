@@ -626,6 +626,22 @@ body {
   text-align: center;
 }
 
+.tags-list {
+  h2 {
+    margin-bottom: 20px;
+    letter-spacing: 5px;
+  }
+  li {
+    margin-bottom: 5px;
+    a{
+      text-align: left;
+      display: block;
+      padding: 20px;
+      border-radius: 3px;
+    }
+  }
+}
+
 footer{
   padding-top: 10px;
    p{
