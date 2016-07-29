@@ -14,7 +14,7 @@ class Prototype < ActiveRecord::Base
   # def main_img
   #   capture_images.main[0].content
   # end
-  scope :with_proto, -> { includes(:user, :capture_images)}
+  scope :including, -> { includes(:user, :capture_images)}
 
 
 end
