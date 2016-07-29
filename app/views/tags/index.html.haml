@@ -1,7 +1,9 @@
 .container
   .row
-    %h2
-      Tags list
-      .col-sm-4.col-sm-3
+    .tags-list
+      %h2
+        Tags list
+      %ul
         - @tags.each do |tag|
-          = link_to "#{tag.name}   project#{tag.taggings_count}", tag_path(tag.id),class:"tag thumbnail"
+          %li.col-md-4(style = "list-style: none")
+            = link_to "#{tag.name}   #{tag.taggings_count} project", tag_path(tag.id),class:"btn btn-default", style: "list-style: none"
