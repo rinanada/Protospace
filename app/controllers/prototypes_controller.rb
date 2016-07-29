@@ -15,7 +15,6 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.new(proto_params)
     if @prototype.save
       redirect_to root_path, notice: 'prototype has been created successfully'
-      binding.pry
     else
       redirect_to new_prototype_path, alert: 'error'
     end
