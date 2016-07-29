@@ -6,14 +6,15 @@
   .container
     .row
       %ul.nav.nav-pills.col-lg-11
-        %li.active{role: "presentation"}
-          =link_to "Popular PROTO"
         %li{role: "presentation"}
-          =link_to "Newest PROTO", newest_index_path
-        = link_to "View Tags",tags_path,class: "btn btn-default col-lg-1"
+          =link_to "Popular PROTO",root_path
+        %li.active{role: "presentation"}
+          =link_to "Newest PROTO"
+      %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
+
 .container.proto-list
   .row
-    = render partial: "prototype",collection: @prototypes
+    = render partial: "prototypes/prototype",collection: @prototypes
 
 .text-center
   = paginate @prototypes
