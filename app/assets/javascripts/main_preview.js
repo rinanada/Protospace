@@ -1,12 +1,21 @@
-$(function() {
-  var inputFile = document.getElementById('prototype_capture_images_attributes_0_content');
-
+$(document).on("change", "#main_image", function() {
+  var inputFile = document.getElementById('main_image');
+  var reader = new FileReader();
+   
   function fileChange(ev) {
     var target = ev.target;
-    var files = target.files;
-
-    console.log(files);
+    var file = target.files[0];
+    var type = file.type;
+    var size = file.size;
+   
+   
+    reader.readAsDataURL(file);
   }
-
+   
+  function fileLoad() {
+    console.log(reader.result);
+  }
+   debugger
   inputFile.addEventListener('change', fileChange, false);
+  reader.addEventListener('load', fileLoad, false);
 });
