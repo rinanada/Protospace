@@ -15,6 +15,7 @@ gem 'devise'
 gem 'pry-rails'
 gem 'carrierwave'
 gem 'kaminari'
+gem 'acts-as-taggable-on','~> 3.4'
 
 group :development, :test do
   gem 'byebug'

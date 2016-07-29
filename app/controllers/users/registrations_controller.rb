@@ -11,7 +11,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def create
   #   super
   # end
-    # binding.pry
      # build_resource(sign_up_params)
 
     # resource.save

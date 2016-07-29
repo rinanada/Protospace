@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   scope module: :prototypes do
    resources :newest, only: :index
   end
+
+  resources :tags, only:[:index,:show]
 end
