@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', function(){
 
   $("#prototype_capture_images_attributes_0_content").on("change", function() {
 
-    var fileList = this.files ;
+    var fileList = this.files[0] ;
 // [FileReader]クラスを起動
     var fileReader = new FileReader() ;
 
@@ -10,14 +10,15 @@ $(document).on('turbolinks:load', function(){
     fileReader.onload = function() {
       // データURIを取得
       var dataUrl = this.result ;
+      debugger
 
       // HTMLに書き出し (src属性にデータURIを指定)
-      document.getElementById( "output_image" ).innerHTML += '<img src="' + dataUrl + '">' ;
+      document.getElementById("output_image").innerHTML += '<img src="' + dataUrl + '">' ;
+
     };
 
-
     // ファイルをデータURIとして読み込む
-    fileReader.readAsDataURL( fileList[0] ) ;
+    fileReader.readAsDataURL(fileList);
 
 
   });
