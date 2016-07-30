@@ -16,7 +16,7 @@
           - 2.times do
             %li.list-group-item.col-md-4
               .image-upload
-                .sub_output_image
+                %div{id: "sub_output_image#{sub_images_count}"}
                   =f.fields_for :capture_images do |capture_fields|
                     =capture_fields.file_field :content, id: "sub_image#{sub_images_count}"
                     =capture_fields.hidden_field :type, value: "sub"
