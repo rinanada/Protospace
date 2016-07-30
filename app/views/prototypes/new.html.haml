@@ -6,11 +6,10 @@
     .row
       .col-md-12
         .cover-image-upload
+          =f.fields_for :capture_images do |capture_fields|
+            =capture_fields.file_field :content
+            =capture_fields.hidden_field :type, value: "main"
           #output_image
-            =f.fields_for :capture_images do |capture_fields|
-              =capture_fields.file_field :content
-              - binding.pry
-              =capture_fields.hidden_field :type, value: "main"
       .col-md-12
         %ul.proto-sub-list.list-group
           - sub_images_count = 1
