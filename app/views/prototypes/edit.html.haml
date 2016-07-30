@@ -6,17 +6,21 @@
     .row
       .col-md-12
         .cover-image-upload
-          =f.fields_for :capture_images, @prototype.capture_images.main.first do |capture_fields|
-            =capture_fields.file_field :content
-            =capture_fields.hidden_field :type, value: "main"
+          #output_image
+            =f.fields_for :capture_images, @prototype.capture_images.main.first do |capture_fields|
+              =capture_fields.file_field :content, id: "main_image"
+              =capture_fields.hidden_field :type, value: "main"
       .col-md-12
         %ul.proto-sub-list.list-group
+          - sub_images_count = 1
           - @prototype.capture_images.sub.each do |sub_image|
             %li.list-group-item.col-md-4
               .image-upload
-                =f.fields_for :capture_images, sub_image do |capture_fields|
-                  =capture_fields.file_field :content
-                  =capture_fields.hidden_field :type, value: "sub"
+                %div{id: "sub_output_image#{sub_images_count}"}
+                  =f.fields_for :capture_images, sub_image do |capture_fields|
+                    =capture_fields.file_field :content, id: "sub_image#{sub_images_count}"
+                    =capture_fields.hidden_field :type, value: "sub"
+                    - sub_images_count += 1
           - if @prototype.capture_images.sub.length <= 2 then
             - (2 - @prototype.capture_images.sub.length).times do
               %li.list-group-item.col-md-4
