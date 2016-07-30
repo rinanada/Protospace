@@ -8,7 +8,8 @@
         .cover-image-upload
           #output_image
             =f.fields_for :capture_images do |capture_fields|
-              =capture_fields.file_field :content, id: "main_image"
+              =capture_fields.file_field :content
+              - binding.pry
               =capture_fields.hidden_field :type, value: "main"
       .col-md-12
         %ul.proto-sub-list.list-group
