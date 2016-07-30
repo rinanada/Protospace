@@ -1,6 +1,5 @@
 $(document).on('turbolinks:load', function(){
   function upload(fileList, output_id) {
-    // var fileList = $("#main_image").files ;
 
       // Blob URLの作成
     var blobUrl = window.URL.createObjectURL( fileList[0] ) ;
@@ -13,13 +12,13 @@ $(document).on('turbolinks:load', function(){
   //   console.log($("#main_image"));
   $("#main_image").on("change", function() {
     // var iii = $("#main_image");
-    main_image_files = this.files;
+    var main_image_files = this.files;
     var output_id = "output_image";
     upload(main_image_files, output_id);
   });
 
   $("#sub_image1").on("change", function() {
-    var js_sub_image = "#sub_output_image";
+    var output_id = "#sub_output_image";
     upload(js_sub_image);
   });
 
