@@ -527,6 +527,7 @@ body {
       padding: 3px;
       min-width: 75px;
       text-transform: capitalize;
+      z-index: 100;
     }
 
     input {
@@ -709,17 +710,63 @@ footer{
   height:100%;
   img{
     display: block;
-    max-width: 100%;
+    width: 100%;
     height: 100%;
   }
 }
 
-.sub_output_image{
+#sub_output_image1{
   width:100%;
   height:100%;
   img{
     display: block;
     max-width: 100%;
     height: 100%;
+  }
+}
+
+#sub_output_image2{
+  width:100%;
+  height:100%;
+  img{
+    display: block;
+    max-width: 100%;
+    height: 100%;
+  }
+}
+
+#sub_output_image3{
+  width:100%;
+  height:100%;
+  img{
+    display: block;
+    max-width: 100%;
+    height: 100%;
+  }
+}
+
+#output_user_image{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  // border-radius: 50%;
+  img{
+    display:block;
+    position:absolute;
+    // border: 2px solid #ddd;
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    position: relative;
+    background-color: #fff;
+    background-size: cover;
+    z-index: 1;
+
+    // display: block;
+    // max-width: 18px;
+    // margin-right: 5px;
+    // border-radius: 50%;
   }
 }
