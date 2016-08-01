@@ -1,9 +1,8 @@
+include ActionDispatch::TestProcess
+
 FactoryGirl.define do
-
   factory :user do
-    nickname              "abe"
-    email                 "kkk@gmail.com"
-    password              "00000000"
+    nickname   "abe"
+    pro { fixture_file_upload("spec/fixtures/img/sample.png", 'image/png') }
   end
-
 end

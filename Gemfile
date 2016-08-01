@@ -32,10 +32,18 @@ group :development do
 
   gem 'spring'
   gem "capybara"            #ユーザーとWebアプリケーションのやり取りをプログラム上で簡単にシュミレートを可能にする
+  gem "launchy"             #テストのデバック用
+  gem "poltergeist"         #capybaraのためのドライバ
+end
+
+
+group :test do
+  gem "capybara"            #ユーザーとWebアプリケーションのやり取りをプログラム上で簡単にシュミレートを可能にする
   gem "database_cleaner"    #データベースをまっさらな状態で各specが実行できるようにする
   gem "launchy"             #テストのデバック用
   gem "poltergeist"         #capybaraのためのドライバ
 end
+
 
 
 
