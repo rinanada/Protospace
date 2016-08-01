@@ -19,6 +19,10 @@ gem 'acts-as-taggable-on','~> 3.4'
 
 group :development, :test do
   gem 'byebug'
+  gem "rspec-rails", "~> 3.1.0"         #Rails 専用の機能を追加するRSpecのラッパーライブラリ
+  gem "factory_girl_rails",  "~> 4.4.1"
+  #テストデータを作成する
+  gem "faker"               #名前やメールアドレス、その他のプレースホルダなどをダミーデータ生成
 end
 
 group :development do
@@ -27,6 +31,11 @@ group :development do
   gem "haml-rails"
 
   gem 'spring'
+  gem "capybara"            #ユーザーとWebアプリケーションのやり取りをプログラム上で簡単にシュミレートを可能にする
+  gem "database_cleaner"    #データベースをまっさらな状態で各specが実行できるようにする
+  gem "launchy"             #テストのデバック用
+  gem "poltergeist"         #capybaraのためのドライバ
 end
+
 
 
