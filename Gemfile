@@ -16,6 +16,9 @@ gem 'pry-rails'
 gem 'carrierwave'
 gem 'kaminari'
 gem 'acts-as-taggable-on','~> 3.4'
+gem 'fog'
+gem "erb2haml"
+gem "haml-rails"
 
 group :development, :test do
   gem 'byebug'
@@ -23,16 +26,14 @@ group :development, :test do
   gem "factory_girl_rails",  "~> 4.4.1"
   #テストデータを作成する
   gem "faker"               #名前やメールアドレス、その他のプレースホルダなどをダミーデータ生成
+  gem "forgery"
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
-  gem "erb2haml"
-  gem "haml-rails"
-
+  gem "shoulda-matchers"
   gem 'spring'
-  gem "capybara"            #ユーザーとWebアプリケーションのやり取りをプログラム上で簡単にシュミレートを可能にする
-  gem "launchy"             #テストのデバック用
+              #ユーザーとWebアプリケーションのやり取りをプログラム上で簡単にシュミレートを可能にする
   gem "poltergeist"         #capybaraのためのドライバ
 end
 
